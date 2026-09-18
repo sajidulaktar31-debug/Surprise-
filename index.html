@@ -1,786 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>For My Chikuu 🤍</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #f8f1ec;
-            color: #3d2b2b;
-            font-family: "DM Sans", sans-serif;
-            line-height: 1.7;
-        }
-
-        /* ---------- COMMON ---------- */
-
-        .screen {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 950px;
-            margin: auto;
-        }
-
-        .serif {
-            font-family: "Playfair Display", serif;
-        }
-
-        .small-title {
-            font-size: 13px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #a87878;
-            margin-bottom: 12px;
-        }
-
-        .section {
-            padding: 90px 20px;
-        }
-
-        .section-title {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(30px, 6vw, 48px);
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: #4a3030;
-        }
-
-        .section-text {
-            max-width: 700px;
-            margin: auto;
-            color: #715d5d;
-            font-size: 16px;
-        }
-
-        /* ---------- WELCOME ---------- */
-
-        #welcome {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at top left, #fff8f5, transparent 40%),
-                radial-gradient(circle at bottom right, #f2dfe0, transparent 40%),
-                #f8f1ec;
-        }
-
-        .welcome-box {
-            animation: fadeUp 1.2s ease;
-        }
-
-        .welcome-box h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(42px, 10vw, 75px);
-            font-weight: 500;
-            line-height: 1.15;
-            margin-bottom: 18px;
-        }
-
-        .welcome-box p {
-            font-size: 19px;
-            color: #806969;
-            margin-bottom: 35px;
-        }
-
-        .open-btn {
-            border: none;
-            background: #5b3b3b;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            box-shadow: 0 10px 25px rgba(91, 59, 59, 0.18);
-        }
-
-        .open-btn:hover {
-            transform: translateY(-3px);
-            background: #493030;
-        }
-
-        /* ---------- BIRTHDAY ---------- */
-
-        #birthday {
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(248,241,236,0.88), rgba(248,241,236,0.95)),
-                url("photo1.jpg") center/cover;
-        }
-
-        .birthday-box {
-            animation: fadeUp 1.2s ease;
-        }
-
-        .birthday-box .small-title {
-            margin-bottom: 15px;
-        }
-
-        .birthday-box h2 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(42px, 9vw, 75px);
-            line-height: 1.1;
-            font-weight: 600;
-            color: #4a3030;
-        }
-
-        .birthday-box h3 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(25px, 6vw, 42px);
-            font-weight: 400;
-            margin-top: 12px;
-            color: #9a6666;
-        }
-
-        .birthday-box p {
-            margin: 25px auto;
-            max-width: 600px;
-            color: #6c5959;
-        }
-
-        /* ---------- MAIN CONTENT ---------- */
-
-        #content {
-            display: none;
-        }
-
-        /* ---------- HERO PHOTO ---------- */
-
-        .hero-photo {
-            width: min(330px, 85vw);
-            height: min(430px, 110vw);
-            object-fit: cover;
-            border-radius: 170px 170px 25px 25px;
-            display: block;
-            margin: 35px auto;
-            box-shadow: 0 20px 50px rgba(75, 47, 47, 0.18);
-        }
-
-        /* ---------- SHAYARI ---------- */
-
-        .shayari-box {
-            max-width: 760px;
-            margin: 40px auto 0;
-            padding: 35px 25px;
-            background: rgba(255,255,255,0.55);
-            border-radius: 25px;
-            border: 1px solid rgba(150,110,110,0.12);
-        }
-
-        .shayari {
-            font-family: "Playfair Display", serif;
-            font-size: 19px;
-            line-height: 2;
-            color: #5a4141;
-        }
-
-        /* ---------- LETTER ---------- */
-
-        .letter-card {
-            max-width: 760px;
-            margin: 40px auto 0;
-            padding: 45px 30px;
-            background: #fffaf7;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(70, 40, 40, 0.08);
-            text-align: left;
-        }
-
-        .letter-card p {
-            margin-bottom: 18px;
-            color: #655353;
-        }
-
-        .letter-ending {
-            font-family: "Playfair Display", serif;
-            font-size: 22px;
-            color: #6d4545;
-            margin-top: 25px;
-        }
-
-        /* ---------- SPECIAL ---------- */
-
-        .special-grid {
-            max-width: 850px;
-            margin: 45px auto 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .special-card {
-            background: #fffaf7;
-            padding: 30px 20px;
-            border-radius: 22px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(80,50,50,0.06);
-        }
-
-        .special-card h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .special-card p {
-            color: #786666;
-            font-size: 14px;
-        }
-
-        /* ---------- GALLERY ---------- */
-
-        .gallery {
-            max-width: 950px;
-            margin: 45px auto 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 22px;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.015);
-        }
-
-        .gallery img:nth-child(1) {
-            grid-row: span 2;
-            height: 715px;
-        }
-
-        /* ---------- FINAL ---------- */
-
-        .final-section {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 70px 20px;
-            background: #4b3434;
-            color: #fff7f3;
-        }
-
-        .final-section .small-title {
-            color: #d9b6b6;
-        }
-
-        .final-section h2 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(35px, 8vw, 60px);
-            font-weight: 500;
-            line-height: 1.25;
-            margin-bottom: 25px;
-        }
-
-        .final-section p {
-            max-width: 700px;
-            margin: auto;
-            color: #eadbdb;
-            font-size: 17px;
-        }
-
-        .forever {
-            margin-top: 35px;
-            font-family: "Playfair Display", serif;
-            font-size: 27px;
-        }
-
-        /* ---------- FOOTER ---------- */
-
-        footer {
-            background: #302222;
-            color: #cbbbbb;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 13px;
-        }
-
-        /* ---------- ANIMATION ---------- */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ---------- MOBILE ---------- */
-
-        @media (max-width: 600px) {
-
-            .section {
-                padding: 70px 18px;
-            }
-
-            .special-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery img,
-            .gallery img:nth-child(1) {
-                height: 420px;
-                grid-row: auto;
-            }
-
-            .shayari-box {
-                padding: 25px 18px;
-            }
-
-            .shayari {
-                font-size: 17px;
-                line-height: 1.9;
-            }
-
-            .letter-card {
-                padding: 30px 22px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Chikuu 🤍</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f1ec;
+    color: #3d2b2b;
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.7;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+}
+
+.label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a87878;
+    margin-bottom: 15px;
+}
+
+.section {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 500;
+    color: #4a3030;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 700px;
+    margin: auto;
+    color: #715d5d;
+}
+
+/* ==============================
+   WELCOME SCREEN
+============================== */
+
+#welcome {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at top left, #fff8f5, transparent 40%),
+        radial-gradient(circle at bottom right, #f2dfe0, transparent 40%),
+        #f8f1ec;
+}
+
+.welcome-box {
+    animation: fadeUp 1.2s ease;
+}
+
+.welcome-box h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 10vw, 75px);
+    font-weight: 500;
+    line-height: 1.1;
+    color: #4a3030;
+}
+
+.welcome-box p {
+    margin-top: 20px;
+    font-size: 19px;
+    color: #806969;
+}
+
+.open-btn {
+    margin-top: 35px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    background: #5b3b3b;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(91,59,59,0.18);
+}
+
+.open-btn:hover {
+    transform: translateY(-3px);
+    background: #493030;
+}
+
+/* ==============================
+   AUDIO
+============================== */
+
+audio {
+    display: none;
+}
+
+/* ==============================
+   BIRTHDAY SCREEN
+============================== */
+
+#birthday {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background:
+        linear-gradient(
+            rgba(248,241,236,0.88),
+            rgba(248,241,236,0.95)
+        ),
+        url("photo1.jpg") center/cover;
+}
+
+.birthday-box {
+    animation: fadeUp 1.2s ease;
+}
+
+.birthday-box h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 10vw, 80px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: #4a3030;
+}
+
+.birthday-box h3 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(25px, 6vw, 42px);
+    font-weight: 400;
+    color: #9a6666;
+    margin-top: 12px;
+}
+
+.birthday-box p {
+    margin-top: 25px;
+    color: #6c5959;
+    font-size: 17px;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+#content {
+    display: none;
+}
+
+/* ==============================
+   HERO PHOTO
+============================== */
+
+.hero-photo {
+    width: min(330px, 85vw);
+    height: min(430px, 110vw);
+    object-fit: cover;
+    display: block;
+    margin: 35px auto;
+    border-radius: 170px 170px 25px 25px;
+    box-shadow: 0 20px 50px rgba(75,47,47,0.18);
+}
+
+/* ==============================
+   SHAYARI
+============================== */
+
+.shayari-box {
+    max-width: 780px;
+    margin: 40px auto 0;
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 25px;
+    border: 1px solid rgba(150,110,110,0.12);
+}
+
+.shayari {
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    line-height: 2;
+    color: #5a4141;
+}
+
+/* ==============================
+   LOVE LETTER
+============================== */
+
+.letter-card {
+    max-width: 760px;
+    margin: 40px auto 0;
+    padding: 45px 30px;
+    background: #fffaf7;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(70,40,40,0.08);
+    text-align: left;
+}
+
+.letter-card p {
+    margin-bottom: 18px;
+    color: #655353;
+}
+
+.letter-ending {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    color: #6d4545;
+    margin-top: 25px;
+}
+
+/* ==============================
+   WHY SPECIAL
+============================== */
+
+.special-grid {
+    max-width: 850px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.special-card {
+    background: #fffaf7;
+    padding: 30px 20px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(80,50,50,0.06);
+}
+
+.special-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.special-card p {
+    color: #786666;
+    font-size: 14px;
+}
+
+/* ==============================
+   GALLERY - 4 PHOTOS
+============================== */
+
+.gallery {
+    max-width: 950px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 22px;
+    transition: transform 0.4s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.015);
+}
+
+.gallery img:first-child {
+    grid-row: span 2;
+    height: 715px;
+}
+
+/* ==============================
+   LONG DISTANCE
+============================== */
+
+.distance-box {
+    max-width: 760px;
+    margin: 40px auto 0;
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 25px;
+}
+
+.distance-box p {
+    color: #705c5c;
+    font-size: 17px;
+}
+
+/* ==============================
+   FINAL SECTION
+============================== */
+
+.final-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: #4b3434;
+    color: #fff7f3;
+}
+
+.final-section .label {
+    color: #d9b6b6;
+}
+
+.final-section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(35px, 8vw, 60px);
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 25px;
+}
+
+.final-section p {
+    max-width: 700px;
+    margin: auto;
+    color: #eadbdb;
+    font-size: 17px;
+}
+
+.forever {
+    margin-top: 35px;
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    background: #302222;
+    color: #cbbbbb;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+}
+
+/* ==============================
+   ANIMATION
+============================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+    .section {
+        padding: 70px 18px;
+    }
+    .special-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .gallery img,
+    .gallery img:first-child {
+        height: 420px;
+        grid-row: auto;
+    }
+    .shayari-box {
+        padding: 25px 18px;
+    }
+    .shayari {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+    .letter-card {
+        padding: 30px 22px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- Song exact name kept as requested -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="love(256k).mp3" type="audio/mpeg">
+</audio>
 
-    <!-- ================================= -->
-    <!-- 1. WELCOME SCREEN -->
-    <!-- ================================= -->
+<section id="welcome">
+    <div class="welcome-box">
+        <div class="label">A little surprise</div>
+        <h1>I have a little<br>surprise for you…</h1>
+        <p>For my Chikuu 🤍</p>
+        <button class="open-btn" id="openSurprise" type="button">Open Your Surprise</button>
+    </div>
+</section>
 
-    <section id="welcome" class="screen">
+<section id="birthday">
+    <div class="birthday-box">
+        <div class="label">Today is all about you</div>
+        <h2>Happy Birthday</h2>
+        <h3>Anisha Ara Ahmed 🤍</h3>
+        <p>
+            Happy Birthday meri jaan ❤️🎂<br>
+            Tum meri zindagi ki sabse khoobsurat wajah ho.
+        </p>
+    </div>
+</section>
 
-        <div class="welcome-box">
+<main id="content">
 
-            <div class="small-title">
-                A little surprise
-            </div>
+<section class="section">
+    <div class="container">
+        <div class="label">My favourite person</div>
+        <h2 class="section-title">My Chikuu 🤍</h2>
+        <img src="photo1.jpg" alt="Anisha" class="hero-photo">
+        <p class="description">
+            Kuch log zindagi mein sirf aate nahi…<br>
+            balki zindagi ko khoobsurat bana dete hain.<br><br>
+            Tum mere liye wahi ho. ❤️
+        </p>
+    </div>
+</section>
 
-            <h1>
-                I have a little<br>
-                surprise for you…
-            </h1>
-
-            <p>
-                For my Chikuu 🤍
+<section class="section">
+    <div class="container">
+        <div class="label">From my heart</div>
+        <h2 class="section-title">For You ❤️</h2>
+        <div class="shayari-box">
+            <p class="shayari">
+                Tere hone se meri duniya haseen lagti hai,<br>
+                Teri har muskaan mujhe sabse khaas lagti hai.<br>
+                Dua hai meri, har khushi tere kadmon mein aaye,<br>
+                Aur har janam mein tu hi meri zindagi ban kar aaye.<br><br>
+                Happy Birthday meri jaan ❤️🎂<br><br>
+                Tum sirf meri mohabbat nahi, meri sabse khoobsurat dua ho.<br>
+                Na jaane kitni duaaon ka asar hai hamare pyaar par,<br>
+                Tabhi toh har mushkil ke baad bhi hum hain ek-dusre ke saath.<br><br>
+                Waqt badle, halaat badle, duniya chahe badal jaaye,<br>
+                Bas hamara pyaar kabhi na badle, aur tu hamesha meri rahe. ❤️<br><br>
+                Tere birthday par bas itni si dua hai meri,<br>
+                Teri har khushi mein meri khushi shamil rahe,<br>
+                Aur hamari ye mohabbat aaj se bhi zyada khoobsurat hoti rahe. 🫶🏻❤️<br><br>
+                Chahe zindagi kitne bhi mod le, meri ek hi khwahish rahegi—<br>
+                har mod par tera haath mere haath mein ho, aur hamara pyaar…<br>
+                hamesha ke liye hum dono ke saath rahe. ❤️♾️<br><br>
+                Faasle chahe kitne bhi ho humare darmiyaan,<br>
+                mera dil hamesha tere hi paas rahega.<br>
+                Har birthday par tujhe gale lagane ki khwahish rahegi,<br>
+                aur ek din ye dooriyan bhi khatam hongi…<br><br>
+                phir tera haath pakad kar kahunga—<br><br>
+                <strong>
+                    “Ab kahin mat jaana, mujhe tere saath poori zindagi chalna hai.” ❤️♾️
+                </strong>
             </p>
-
-            <button class="open-btn" onclick="openSurprise()">
-                Open Your Surprise
-            </button>
-
         </div>
+    </div>
+</section>
 
-    </section>
+<section class="section">
+    <div class="container">
+        <div class="label">A letter for you</div>
+        <h2 class="section-title">Dear Chikuu</h2>
+        <div class="letter-card">
+            <p>Meri jaan,</p>
+            <p>Aaj tumhara birthday hai, aur main chahta hoon ki aaj ke din tumhe sirf birthday wish nahi, balki ye bhi bataun ki tum mere liye kitni special ho.</p>
+            <p>Shayad main har baar words mein express nahi kar pata, lekin tum meri life ka woh hissa ho jiske bina sab kuch thoda adhura sa lagta hai.</p>
+            <p>Tumhari ek smile mera pura mood change kar sakti hai. Tumhari ek chhoti si baat bhi mere liye bahut important hoti hai.</p>
+            <p>Humare beech distance hai, lekin mere dil ke liye tum kabhi door nahi rahi. Faasle sirf jagah ke hain, dil ke nahi.</p>
+            <p>Main bas ye chahta hoon ki tum hamesha khush raho, smile karti raho aur apne saare dreams achieve karo.</p>
+            <p>Aur haan… zindagi kitni bhi badal jaaye, meri ek wish hamesha same rahegi— tumhara haath mere haath mein ho.</p>
+            <p class="letter-ending">Happy Birthday, meri Chikuu. ❤️</p>
+            <p>Always yours. 🤍</p>
+        </div>
+    </div>
+</section>
 
+<section class="section">
+    <div class="container">
+        <div class="label">Just a few reasons</div>
+        <h2 class="section-title">Why You Are Special</h2>
+        <p class="description">There are probably a thousand reasons, but these are some of my favourites.</p>
 
-    <!-- ================================= -->
-    <!-- BACKGROUND SONG -->
-    <!-- ================================= -->
-
-    <audio id="backgroundMusic" loop>
-
-        <source
-            src="Gerua_-_Shah_Rukh_Khan__Kajol___Dilwale__Pritam__SRK_Kajol_Official_New_Song_Video_2015(128k).m4a"
-            type="audio/mp4">
-
-    </audio>
-
-
-    <!-- ================================= -->
-    <!-- 2. BIRTHDAY REVEAL -->
-    <!-- ================================= -->
-
-    <section id="birthday" class="screen hidden">
-
-        <div class="birthday-box">
-
-            <div class="small-title">
-                Today is all about you
+        <div class="special-grid">
+            <div class="special-card">
+                <h3>Your Smile</h3>
+                <p>Tumhari smile mein kuch aisa hai jo mera pura din better kar deta hai.</p>
             </div>
+            <div class="special-card">
+                <h3>Your Heart</h3>
+                <p>Tumhara caring nature tumhe mere liye aur bhi special banata hai.</p>
+            </div>
+            <div class="special-card">
+                <h3>Your Presence</h3>
+                <p>Tum paas ho ya door, tumhari presence hamesha feel hoti hai.</p>
+            </div>
+            <div class="special-card">
+                <h3>Just You</h3>
+                <p>Sabse badi baat ye hai ki tum bas tum ho — aur mujhe wahi pasand hai.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <h2>
-                Happy Birthday
-            </h2>
+<section class="section">
+    <div class="container">
+        <div class="label">Our memories</div>
+        <h2 class="section-title">Little Moments 🤍</h2>
+        <p class="description">Kuch pictures sirf pictures nahi hoti… woh memories hoti hain.</p>
 
-            <h3>
-                Anisha Ara Ahmed 🤍
-            </h3>
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Memory 1">
+            <img src="photo2.jpg" alt="Memory 2">
+            <img src="photo3.jpg" alt="Memory 3">
+            <img src="photo4.jpg" alt="Memory 4">
+        </div>
+    </div>
+</section>
 
+<section class="section">
+    <div class="container">
+        <div class="label">Until we meet</div>
+        <h2 class="section-title">Distance Can't Change This ❤️</h2>
+        <div class="distance-box">
             <p>
-                Happy Birthday meri jaan ❤️🎂
-                <br>
-                Tum meri zindagi ki sabse khoobsurat wajah ho.
+                Faasle chahe kitne bhi ho, meri feelings tumhare liye same rahengi.<br><br>
+                Aaj tumhe birthday par gale nahi laga sakta, lekin ek din zaroor woh moment aayega.<br><br>
+                Aur jab woh din aayega, shayad main kuch bol bhi na paun…<br><br>
+                bas tumhara haath pakad kar tumhe apne paas rakhunga.
             </p>
-
         </div>
-
-    </section>
-
-
-    <!-- ================================= -->
-    <!-- 3. MAIN WEBSITE CONTENT -->
-    <!-- ================================= -->
-
-    <main id="content">
-
-
-        <!-- HERO PHOTO -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    My favourite person
-                </div>
-
-                <h2 class="section-title">
-                    My Chikuu 🤍
-                </h2>
-
-                <img
-                    src="photo1.jpg"
-                    alt="My Chikuu"
-                    class="hero-photo">
-
-                <p class="section-text">
-                    Kuch log zindagi mein sirf aate nahi…
-                    balki zindagi ko khoobsurat bana dete hain.
-                    Tum mere liye wahi ho.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- SHAYARI -->
-        <!-- ================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    From my heart
-                </div>
-
-                <h2 class="section-title">
-                    For You ❤️
-                </h2>
-
-                <div class="shayari-box">
-
-                    <p class="shayari">
-
-                        Tere hone se meri duniya haseen lagti hai,<br>
-                        Teri har muskaan mujhe sabse khaas lagti hai.<br>
-                        Dua hai meri, har khushi tere kadmon mein aaye,<br>
-                        Aur har janam mein tu hi meri zindagi ban kar aaye.<br>
-
-                        <br>
-
-                        Happy Birthday meri jaan ❤️🎂
-
-                        <br><br>
-
-                        Tum sirf meri mohabbat nahi,
-                        meri sabse khoobsurat dua ho.<br>
-
-                        Na jaane kitni duaaon ka asar hai hamare pyaar par,<br>
-                        Tabhi toh har mushkil ke baad bhi hum hain ek-dusre ke saath.
-
-                        <br><br>
-
-                        Waqt badle, halaat badle,
-                        duniya chahe badal jaaye,<br>
-                        Bas hamara pyaar kabhi na badle,
-                        aur tu hamesha meri rahe. ❤️
-
-                        <br><br>
-
-                        Tere birthday par bas itni si dua hai meri,<br>
-                        Teri har khushi mein meri khushi shamil rahe,<br>
-                        Aur hamari ye mohabbat aaj se bhi zyada khoobsurat hoti rahe. 🫶🏻❤️
-
-                        <br><br>
-
-                        Chahe zindagi kitne bhi mod le,
-                        meri ek hi khwahish rahegi—<br>
-                        har mod par tera haath mere haath mein ho,
-                        aur hamara pyaar… hamesha ke liye hum dono ke saath rahe. ❤️♾️
-
-                        <br><br>
-
-                        Faasle chahe kitne bhi ho humare darmiyaan,<br>
-                        mera dil hamesha tere hi paas rahega.<br>
-
-                        Har birthday par tujhe gale lagane ki khwahish rahegi,<br>
-                        aur ek din ye dooriyan bhi khatam hongi…
-
-                        <br><br>
-
-                        phir tera haath pakad kar kahunga—<br>
-
-                        <strong>
-                            “Ab kahin mat jaana,
-                            mujhe tere saath poori zindagi chalna hai.” ❤️♾️
-                        </strong>
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- LOVE LETTER -->
-        <!-- ================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    A letter for you
-                </div>
-
-                <h2 class="section-title">
-                    Dear Chikuu
-                </h2>
-
-                <div class="letter-card">
-
-                    <p>
-                        Meri jaan,
-                    </p>
-
-                    <p>
-                        Aaj tumhara birthday hai, aur main chahta hoon
-                        ki aaj ke din tumhe sirf birthday wish nahi,
-                        balki ye bhi bataun ki tum mere liye kitni
-                        special ho.
-                    </p>
-
-                    <p>
-                        Shayad main har baar words mein express nahi
-                        kar pata, lekin tum meri life ka woh hissa ho
-                        jiske bina sab kuch thoda adhura sa lagta hai.
-                    </p>
-
-                    <p>
-                        Tumhari ek smile mera pura mood change kar sakti hai.
-                        Tumhari ek chhoti si baat bhi mere liye bahut
-                        important hoti hai.
-                    </p>
-
-                    <p>
-                        Humare beech distance hai, lekin mere dil ke
-                        liye tum kabhi door nahi rahi.
-                        Faasle sirf jagah ke hain, dil ke nahi.
-                    </p>
-
-                    <p>
-                        Main bas ye chahta hoon ki tum hamesha khush raho,
-                        smile karti raho aur apne saare dreams achieve karo.
-                    </p>
-
-                    <p>
-                        Aur haan… zindagi kitni bhi badal jaaye,
-                        meri ek wish hamesha same rahegi—
-                        tumhara haath mere haath mein ho.
-                    </p>
-
-                    <p class="letter-ending">
-                        Happy Birthday, meri Chikuu. ❤️
-                    </p>
-
-                    <p>
-                        Always yours. 🤍
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- WHY YOU ARE SPECIAL -->
-        <!-- ================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    Just a few reasons
-                </div>
-
-                <h2 class="section-title">
-                    Why You Are Special
-                </h2>
-
-                <p class="section-text">
-                    There are probably a thousand reasons,
-                    but these are some of my favourites.
-                </p>
-
-                <div class="special-grid">
-
-                    <div class="special-card">
-
-                        <h3>Your Smile</h3>
-
-                        <p>
-                            Tumhari smile mein kuch aisa hai
-                            jo mera pura din better kar deta hai.
-                        </p>
-
-                    </div>
-
-
-                    <div class="special-card">
-
-                        <h3>Your Heart</h3>
-
-                        <p>
-                            Tumhara caring nature tumhe mere liye
-                            aur bhi special banata hai.
-                        </p>
-
-                    </div>
-
-
-                    <div class="special-card">
-
-                        <h3>Your Presence</h3>
-
-                        <p>
-                            Tum paas ho ya door,
-                            tumhari presence hamesha feel hoti hai.
-                        </p>
-
-                    </div>
-
-
-                    <div class="special-card">
-
-                        <h3>Just You</h3>
-
-                        <p>
-                            Sabse badi baat ye hai ki
-                            tum bas tum ho — aur mujhe wahi pasand hai.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- MEMORY GALLERY -->
-        <!-- ================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    Our memories
-                </div>
-
-                <h2 class="section-title">
-                    Little Moments 🤍
-                </h2>
-
-                <p class="section-text">
-                    Kuch pictures sirf pictures nahi hoti…
-                    woh memories hoti hain.
-                </p>
-
-                <div class="gallery">
-
-                    <img src="photo1.jpg" alt="Memory 1">
-
-                    <img src="photo2.jpg" alt="Memory 2">
-
-                    <img src="photo3.jpg" alt="Memory 3">
-
-                    <img src="photo4.jpg" alt="Memory 4">
-
-                    <img src="photo5.jpg" alt="Memory 5">
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- LONG DISTANCE MESSAGE -->
-        <!-- ================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="small-title">
-                    Until we meet
-                </div>
-
-                <h2 class="section-title">
-                    Dist
+    </div>
+</section>
+
+<section class="final-section">
+    <div class="container">
+        <div class="label">One last thing</div>
+        <h2>I don't need a perfect life…<br>I just want you in mine.</h2>
+        <p>
+            Happy Birthday meri jaan. ❤️<br><br>
+            Tumhari har khushi mere liye important hai. Tumhari smile hamesha bani rahe, aur hamara pyaar har saal aur beautiful hota rahe.<br><br>
+            Chahe duniya badal jaaye, waqt badal jaaye, ya zindagi humein kitne bhi raste dikhaaye…<br><br>
+            meri dua hamesha wahi rahegi—<br>
+            <strong>tum aur main. ❤️</strong>
+        </p>
+        <div class="forever">You & Me — Forever ♾️</div>
+    </div>
+</section>
+
+<footer>
+    Made with love for my Chikuu 🤍<br>
+    Happy Birthday, Anisha ❤️
+</footer>
+
+</main>
+
+<script>
+document.getElementById("openSurprise").addEventListener("click", function () {
+
+    // 1. Audio Playback (Handled safely so UI doesn't crash)
+    const music = document.getElementById("backgroundMusic");
+    if (music) {
+        music.volume = 0.65;
+        music.play().catch(function (error) {
+            console.log("Audio play failed or blocked by browser:", error);
+        });
+    }
+
+    // 2. Hide Welcome Screen
+    document.getElementById("welcome").style.display = "none";
+
+    // 3. Show Birthday Reveal Screen
+    document.getElementById("birthday").style.display = "flex";
+
+    // 4. Show Main Content after 4.5 seconds
+    setTimeout(function () {
+        document.getElementById("birthday").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, 4500);
+
+});
+</script>
+
+</body>
+    </html>
