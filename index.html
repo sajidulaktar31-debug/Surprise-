@@ -421,11 +421,7 @@
     <!-- ================================= -->
 
     <audio id="backgroundMusic" loop>
-
-        <source
-            src="Gerua_-_Shah_Rukh_Khan__Kajol___Dilwale__Pritam__SRK_Kajol_Official_New_Song_Video_2015(128k).m4a"
-            type="audio/mp4">
-
+    <source src="love(256k).m4a" type="audio/mp4">
     </audio>
 
 
@@ -886,23 +882,22 @@
     <script>
 
         function openSurprise() {
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("birthday").classList.remove("hidden");
 
-            // Welcome screen hide
-            document.getElementById("welcome").classList.add("hidden");
+    const music = document.getElementById("backgroundMusic");
 
-            // Birthday screen show
-            document.getElementById("birthday").classList.remove("hidden");
+    music.volume = 0.65;
 
-            // Background music start
-            const music = document.getElementById("backgroundMusic");
+    music.play().catch(function(error) {
+        console.log("Song error:", error);
+    });
 
-            music.volume = 0.65;
-
-            music.play().catch(function(error) {
-
-                console.log("Music could not start:", error);
-
-            });
+    setTimeout(function() {
+        document.getElementById("birthday").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 4500);
+}
 
 
             // Birthday screen ke baad main content show
