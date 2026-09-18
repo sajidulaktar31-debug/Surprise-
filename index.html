@@ -1,61 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="section">
-  <div class="section-number">02 — A few words</div>
+  <title>For My Chikuu 🤍</title>
 
-  <h2>For My Chikuu</h2>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
-  <div class="shayari">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <p>
-      Tere hone se meri duniya haseen lagti hai,<br>
-      Teri har muskaan mujhe sabse khaas lagti hai.<br>
-      Dua hai meri, har khushi tere kadmon mein aaye,<br>
-      Aur har janam mein tu hi meri zindagi ban kar aaye.
-    </p>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <p>
-      <strong>Happy Birthday meri jaan ❤️🎂</strong><br>
-      Tum sirf meri mohabbat nahi,<br>
-      meri sabse khoobsurat dua ho.
-    </p>
+    body {
+      background: #f7f2ed;
+      color: #302825;
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
 
-    <p>
-      Na jaane kitni duaaon ka asar hai hamare pyaar par,<br>
-      Tabhi toh har mushkil ke baad bhi hum hain ek-dusre ke saath.<br>
-      Waqt badle, halaat badle, duniya chahe badal jaaye,<br>
-      Bas hamara pyaar kabhi na badle,<br>
-      aur tu hamesha meri rahe. ❤️
-    </p>
+    /* ---------------- OPENING SCREEN ---------------- */
 
-    <p>
-      Tere birthday par bas itni si dua hai meri,<br>
-      Teri har khushi mein meri khushi shamil rahe,<br>
-      Aur hamari ye mohabbat aaj se bhi zyada<br>
-      khoobsurat hoti rahe. 🫶🏻❤️
-    </p>
+    #opening {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-    <p>
-      Chahe zindagi kitne bhi mod le,<br>
-      meri ek hi khwahish rahegi—<br>
-      har mod par tera haath mere haath mein ho,<br>
-      aur hamara pyaar…<br>
-      hamesha ke liye hum dono ke saath rahe. ❤️♾️
-    </p>
+    .opening-inner {
+      max-width: 700px;
+    }
 
-    <p>
-      Faasle chahe kitne bhi ho humare darmiyaan,<br>
-      mera dil hamesha tere hi paas rahega.<br>
-      Har birthday par tujhe gale lagane ki khwahish rahegi,<br>
-      aur ek din ye dooriyan bhi khatam hongi…
-    </p>
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #927d74;
+      margin-bottom: 25px;
+    }
 
-    <p>
-      Phir tera haath pakad kar kahunga—<br>
-      <em>
-        “Ab kahin mat jaana,<br>
-        mujhe tere saath poori zindagi chalna hai.” ❤️♾️
-      </em>
-    </p>
+    .opening-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 9vw, 76px);
+      font-weight: 400;
+      line-height: 1.08;
+    }
 
-  </div>
-</section>
+    .opening-subtitle {
+      margin-top: 20px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 22px;
+      color: #765f56;
+    }
+
+    .open-btn {
+      margin-top: 42px;
+      padding: 15px 32px;
+      border: 1px solid #3b302c;
+      border-radius: 50px;
+      background: transparent;
+      color: #302825;
+      font-family: "DM Sans", sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .open-btn:hover {
+      background: #302825;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* ---------------- BIRTHDAY HERO ---------------- */
+
+    #surprise {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    #surprise.show {
+      display: flex;
+      animation: softReveal 1.2s ease forwards;
+    }
+
+    @keyframes softReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .birthday-date {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #927d74;
+      margin-bottom: 22px;
+    }
+
+    .birthday-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-size: clamp(45px, 10vw, 90px);
+      line-height: 1.05;
+    }
+
+    .birthday-title span {
+      display: block;
+      font-style: italic;
+      color: #76584e;
+    }
+
+    .birthday-message {
+      max-width: 600px;
+      margin: 30px auto 0;
+      line-height: 1.9;
+      font-size: 15px;
+      color: #6c5b55;
+    }
+
+    .music-btn {
+      margin-top: 32px;
+      padding: 13px 25px;
+      border: none;
+      border-radius: 50px;
+      background: #302825;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+
+    #mainContent {
+      display: none;
+    }
+
+    #mainContent.show {
+      display: block;
+      animation: contentReveal 1.2s ease forwards;
+    }
+
+    @keyframes contentReveal {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .content {
+      max-width: 850px;
+      margin: auto;
+      padding: 90px 22px;
+    }
+
+    .section {
+      margin-bottom: 120px;
+      text-align: center;
+    }
+
+    .section-number {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #a08980;
+      margin-bottom: 18px;
+    }
+
+    .section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 7vw, 52px);
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    /* ---------------- PHOTO ---------------- */
+
+    .photo-frame {
+      width: min(90%, 480px);
+      margin: 35px auto;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(60, 45, 40, 0.10);
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      padding: 16px 5px 7px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      color: #765f56;
+      font-size: 17px;
+    }
+
+    /* ---------------- SHAYARI ---------------- */
+
+    .shayari {
+      max-width: 680px;
+      margin: auto;
+    }
+
+    .shayari-card {
+      padding: 32px 25px;
+      margin-bottom: 28px;
+      border-top: 1px solid #d9ccc4;
+      border-bottom: 1px solid #d9ccc4;
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+      line-height: 1.9;
+      color: #5f4d47;
+    }
+
+    .shayari-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .shayari-card strong {
+      font-weight: 500;
+    }
+
+    .shayari-card em {
+      color: #76584e;
+    }
+
+    /* ---------------- LOVE LETTER ---------------- */
+
+    .letter {
+      max-width: 650px;
+      margin: auto;
+      padding: 35px 28px;
+      background: rgba(255,255,255,0.45);
+      border: 1px solid #e2d7d0;
+      text-align: left;
+      line-height: 2;
+      color: #665650;
+      font-size: 15px;
+    }
+
+    .letter-title {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      color: #40332f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ---------------- SPECIAL THINGS ---------------- */
+
+    .things {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .thing {
+      padding: 25px 15px;
+      border: 1px solid #ded1ca;
+      background: rgba(255,255,255,0.3);
+      font-family: "Playfair Display", serif;
+      font-size: 17px;
+      color: #65534c;
+    }
+
+    /* ---------------- MEMORIES ---------------- */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: #e8ddd6;
+    }
+
+    /* ---------------- FINAL ---------------- */
+
+    .final {
+      padding-bottom: 100px;
+    }
+
+    .final h2 {
+      font-size: clamp(45px, 9vw, 75px);
+      line-height: 1.1;
+    }
+
+    .final h2 span {
+      font-style: italic;
+      color: #76584e;
+    }
+
+    .final-message {
+      max-width: 600px;
+      margin: 28px auto;
+      line-height: 1.9;
+      color: #6b5952;
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #76584e;
+    }
+
+    .end-line {
+      margin-top: 50px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #a18b82;
+      text-transform: uppercase;
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 600px) {
+
+      .opening-title {
+        font-size: 43px;
+      }
+
+      .opening-subtitle {
+        font-size: 19px;
+      }
+
+      .photo-frame img {
+        height: 500px;
+      }
+
+      .shayari-card {
+        font-size: 18px;
+      }
+
+      .things {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 400px;
+      }
+
+      .letter {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       FIRST SCREEN
+  ====================================================== -->
+
+  <section id="opening">
+
+    <div class="opening-inner">
+
+      <div class="eyebrow">
+        A little surprise for someone special
+      </div>
+
+      <h1 class="opening-title">
+        I have a little surprise for you…
+      </h1>
+
+      <div class="opening-subtitle">
+        For my Chikuu 🤍
+      </div>
+
+      <button class="open-btn" onclick="openSurprise()">
+        Open Your Surprise
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       BIRTHDAY SCREEN
+  ====================================================== -->
+
+  <section id="surprise">
+
+    <div>
+
+      <div class="birthday-date">
+        Today is all about you
+      </div>
+
+      <h1 class="birthday-title">
+        Happy Birthday,
+        <span>Anisha 🤍</span>
+      </h1>
+
+      <p class="birthday-message">
+
+        Happy Birthday meri jaan ❤️🎂<br>
+
+        Tum sirf meri mohabbat nahi,
+        meri sabse khoobsurat dua ho.
+
+        Aaj ka din mere liye bhi special hai,
+        kyunki aaj meri Chikuu duniya mein aayi thi.
+
+      </p>
+
+      <button class="music-btn" id="musicButton" onclick="toggleMusic()">
+        ♪ Play Music
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MAIN WEBSITE
+  ====================================================== -->
+
+  <main id="mainContent">
+
+    <div class="content">
+
+
+      <!-- PHOTO SECTION -->
+
+      <section class="section">
+
+        <div class="section-number">
+          01 — Her
+        </div>
+
+        <h2>
+          My favourite person
+        </h2>
+
+        <div class="photo-frame">
+
+          <img
+            src="images/anisha.jpg"
+            alt="Anisha Ara Ahmed"
+          >
+
+          <div class="photo-caption">
+            My beautiful Chikuu 🤍
+          </div>
+
+        </div>
+
+        <p class="birthday-message">
+
+          Some people are beautiful in pictures,
+          but somehow you make the picture beautiful
+          just by being in it.
+
+        </p>
+
+      </section>
+
+
+
+      <!-- SHAYARI SECTION -->
+
+      <section class="section">
+
+        <div class="section-number">
+          02 — A few words
+        </div>
+
+        <h2>
+          For My Chikuu
+        </h2>
+
+        <div class="shayari">
+
+
+          <div class="shayari-card">
+
+            Tere hone se meri duniya haseen lagti hai,<br>
+            Teri har muskaan mujhe sabse khaas lagti hai.<br>
+            Dua hai meri, har khushi tere kadmon mein aaye,<br>
+            Aur har janam mein tu hi meri zindagi ban kar aaye.
+
+            <br><br>
+
+            <strong>
+              Happy Birthday meri jaan ❤️🎂
+            </strong>
+
+            <br>
+
+            Tum sirf meri mohabbat nahi,
+            meri sabse khoobsurat dua ho.
+
+          </div>
+
+
+
+          <div class="shayari-card">
+
+            Na jaane kitni duaaon ka asar hai hamare pyaar par,<br>
+            Tabhi toh har mushkil ke baad bhi hum hain ek-dusre ke saath.<br>
+            Waqt badle, halaat badle, duniya chahe badal jaaye,<br>
+            Bas hamara pyaar kabhi na badle,<br>
+            aur tu hamesha meri rahe. ❤️
+
+          </div>
+
+
+
+          <div class="shayari-card">
+
+            Tere birthday par bas itni si dua hai meri,<br>
+            Teri har khushi mein meri khushi shamil rahe,<br>
+            Aur hamari ye mohabbat aaj se bhi zyada<br>
+            khoobsurat hoti rahe. 🫶🏻❤️
+
+          </div>
+
+
+
+          <div class="shayari-card">
+
+            Chahe zindagi kitne bhi mod le,
+            meri ek hi khwahish rahegi—<br>
+            har mod par tera haath mere haath mein ho,<br>
+            aur hamara pyaar…<br>
+            hamesha ke liye hum dono ke saath rahe. ❤️♾️
+
+          </div>
+
+
+
+          <div class="shayari-card">
+
+            Faasle chahe kitne bhi ho humare darmiyaan,<br>
+            mera dil hamesha tere hi paas rahega.<br>
+            Har birthday par tujhe gale lagane ki khwahish rahegi,<br>
+            aur ek din ye dooriyan bhi khatam hongi…
+
+            <br><br>
+
+            Phir tera haath pakad kar kahunga—
+
+            <br><br>
+
+            <em>
+              “Ab kahin mat jaana,<br>
+              mujhe tere saath poori zindagi chalna hai.” ❤️♾️
+            </em>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- LOVE LETTER -->
+
+      <section class="section">
+
+        <div class="section-number">
+          03 — From my heart
+        </div>
+
+        <h2>
+          A letter for you
+        </h2>
+
+        <div class="letter">
+
+          <div class="letter-title">
+            Dear Chikuu 🤍
+          </div>
+
+          Anisha,
+
+          <br><br>
+
+          Aaj tumhara birthday hai,
+          aur main chahta hoon ki is special din par
+          tumhe ek baat hamesha yaad rahe—
+
+          <br><br>
+
+          Tum meri zindagi ka sirf ek hissa nahi ho.
+          Tum un khoobsurat wajah mein se ek ho
+          jinke wajah se mere ordinary days bhi special lagte hain.
+
+          <br><br>
+
+          Kabhi kabhi words kam pad jaate hain
+          batane ke liye ki koi insaan humare liye
+          kitna important hai.
+
+          <br><br>
+
+          Bas itna kehna hai ki tumhari smile,
+          tumhari baatein aur tumhara hona
+          mere liye bahut special hai.
+
+          <br><br>
+
+          Faasle chahe jitne bhi ho,
+          meri dua hamesha tumhare saath rahegi.
+
+          <br><br>
+
+          Main chahta hoon ki tumhari life
+          khushiyon, success aur beautiful moments
+          se bhari rahe.
+
+          <br><br>
+
+          Aur agar zindagi ne humein bahut saare
+          mod dikhaye bhi,
+          toh meri wish bas itni hai ki
+          hum dono har mod par ek-dusre ka haath
+          pakad kar aage badhein.
+
+          <br><br>
+
+          Happy Birthday meri Chikuu. ❤️
+
+          <br><br>
+
+          Tum mere liye hamesha special rahogi.
+
+        </div>
+
+      </section>
+
+
+
+      <!-- WHY SPECIAL -->
+
+      <section class="section">
+
+        <div class="section-number">
+          04 — Little things
+        </div>
+
+        <h2>
+          Why you are special
+        </h2>
+
+        <div class="things">
+
+          <div class="thing">
+            Your smile 🤍
+          </div>
+
+          <div class="thing">
+            Your beautiful heart
+          </div>
+
+          <div class="thing">
+            Your little habits
+          </div>
+
+          <div class="thing">
+            The way you make me smile
+          </div>
+
+          <div class="thing">
+            Your voice
+          </div>
+
+          <div class="thing">
+            Simply… you. 🤍
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- MEMORIES -->
+
+      <section class="section">
+
+        <div class="section-number">
+          05 — Memories
+        </div>
+
+        <h2>
+          Beautiful moments
+        </h2>
+
+        <div class="gallery">
+
+          <img
+            src="images/photo1.jpg"
+            alt="Memory 1"
+          >
+
+          <img
+            src="images/photo2.jpg"
+            alt="Memory 2"
+          >
+
+          <img
+            src="images/photo3.jpg"
+            alt="Memory 3"
+          >
+
+          <img
+            src="images/photo4.jpg"
+            alt="Memory 4"
+          >
+
+        </div>
+
+      </section>
+
+
+
+      <!-- FINAL SURPRISE -->
+
+      <section class="section final">
+
+        <div class="section-number">
+          06 — One last thing
+        </div>
+
+        <h2>
+
+          I'm glad<br>
+
+          <span>
+            I found you.
+          </span>
+
+        </h2>
+
+        <p class="final-message">
+
+          Chahe zindagi kitne bhi mod le,
+          meri ek hi khwahish rahegi—
+
+          <br><br>
+
+          Har mod par tera haath mere haath mein ho,
+          aur hamara pyaar hamesha hum dono ke saath rahe.
+
+          <br><br>
+
+          I don't need a perfect life.
+          I just want more beautiful moments with you. ❤️
+
+        </p>
+
+        <div class="signature">
+          — Yours, always 🤍
+        </div>
+
+        <div class="end-line">
+          Happy Birthday, My Chikuu
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       BACKGROUND MUSIC
+  ====================================================== -->
+
+  <audio id="backgroundMusic" loop>
+
+    <source
+      src="music/birthday-song.mp3"
+      type="audio/mpeg"
+    >
+
+  </audio>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    function openSurprise() {
+
+      const opening =
+        document.getElementById("opening");
+
+      const surprise =
+        document.getElementById("surprise");
+
+      const content =
+        document.getElementById("mainContent");
+
+      const music =
+        document.getElementById("backgroundMusic");
+
+      const musicButton =
+        document.getElementById("musicButton");
+
+
+      /* Opening screen fade */
+
+      opening.style.opacity = "0";
+      opening.style.transform =
+        "translateY(-20px)";
+
+
+      setTimeout(function() {
+
+        opening.style.display = "none";
+
+
+        /* Birthday screen */
+
+        surprise.classList.add("show");
+
+
+        /* Main content */
+
+        content.classList.add("show");
+
+
+        /*
+          Music starts because the user
+          clicked the button.
+        */
+
+        music.play()
+          .then(function() {
+
+            musicButton.innerHTML =
+              "Ⅱ  Music Playing";
+
+          })
+          .catch(function() {
+
+            musicButton.innerHTML =
+              "♪ Play Music";
+
+          });
+
+      }, 700);
+
+    }
+
+
+
+    function toggleMusic() {
+
+      const music =
+        document.getElementById("backgroundMusic");
+
+      const button =
+        document.getElementById("musicButton");
+
+
+      if (music.paused) {
+
+        music.play();
+
+        button.innerHTML =
+          "Ⅱ  Music Playing";
+
+      } else {
+
+        music.pause();
+
+        button.innerHTML =
+          "♪ Play Music";
+
+      }
+
+    }
+
+  </script>
+
+
+</body>
+</html>
